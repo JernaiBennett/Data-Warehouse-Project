@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Customer dimension combining CRM info, demographics, and location"
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+
+  - name: dim_products
+    description: "Product dimension combining product info and categories"
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+
+  - name: fct_sales
+    description: "Incremental sales fact table joining sales, customers, and products"
+    columns:
+      - name: order_number
+        tests: [not_null]
+        

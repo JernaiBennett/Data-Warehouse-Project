@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: raw
+    database: SALES_DW
+    schema: RAW
+    tables:
+      - name: cust_info
+        description: "Raw CRM customer records"
+        columns:
+          - name: cst_id
+            tests:
+              - unique
+              - not_null
+      - name: cust_az12
+        description: "Raw CRM customer demographics"
+        columns:
+          - name: cid
+            tests:
+              - not_null
+      - name: loc_a101
+        description: "Raw CRM customer locations"
+        columns:
+          - name: cid
+            tests:
+              - not_null
+      - name: prd_info
+        description: "Raw ERP product records"
+        columns:
+          - name: prd_id
+            tests:
+              - unique
+              - not_null
+      - name: px_cat_g1v2
+        description: "Raw ERP product categories"
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+      - name: sales_details
+        description: "Raw ERP sales transactions"
+        columns:
+          - name: sls_ord_num
+            tests:
+              - not_null
+              

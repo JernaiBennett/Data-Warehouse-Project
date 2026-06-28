@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_cust_info
+    description: "Cleaned CRM customer records"
+    columns:
+      - name: cst_id
+        tests: [unique, not_null]
+      - name: cst_gender
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Male', 'Female', 'Unknown']
+
+  - name: stg_prd_info
+    description: "Cleaned ERP product records"
+    columns:
+      - name: prd_id
+        tests: [unique, not_null]
+
+  - name: stg_sales_details
+    description: "Cleaned sales transactions"
+    columns:
+      - name: sls_ord_num
+        tests: [not_null]
